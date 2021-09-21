@@ -1,0 +1,298 @@
+#customImplementationExample {
+    display: block !important;
+}
+
+#mswContainer {
+    z-index: 99999;
+    position: fixed;
+    bottom: 30px;
+    right: 80px;
+    font-family: Oracle Sans;
+}
+
+#mswIconContainer {
+    z-index: 99999;
+    background-color: #f8f8f8 !important;
+    border-radius: 10px;
+    box-shadow: -1px -1px 26px -6px rgba(0, 0, 0, 0.71);
+    transition: 0.5s ease;
+    text-align: center;
+}
+
+#mswMainIcon {
+    font-size: 60px;
+    padding: 5px;
+    color: #475E7F !important;
+    transition: 0.5s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#mswIconText {
+    color: #475E7F !important;
+    display: block;
+    font-size: 12px;
+    margin: -6px 5px 0;
+}
+
+#mswIconContainer:not(.mswContainerOpen):hover #mswMainIcon {
+    color: #00395a !important;
+    transform: rotateY(-180deg);
+    transition: visibility 1s, transform 1s;
+}
+
+#mswIconContainer.mswContainerOpen {
+    margin-right: 0;
+}
+
+#mswIconContainer.mswContainerOpen #mswMainIcon {
+    font-size: 30px !important;
+    right: 40px !important;
+}
+
+#mswIconContainer.mswContainerOpen #mswIconText {
+    display: none !important;
+}
+
+#mswOptions {
+    display: none;
+    color: #00395a !important;
+}
+
+#mswOptions.mswShowOption {
+    position: absolute;
+    display: block;
+    bottom: 45px;
+    left: -135px;
+    width: 180px;
+    background-color: #fff !important;
+    z-index: 99990;
+    box-shadow: -1px -1px 20px -6px rgba(0, 0, 0, 0.71);
+}
+
+.mswOption {
+    position: relative;
+    display: block;
+    font-size: 22px !important;
+    border-top: 1px solid #00395a !important;
+    left: 0;
+    width: 180px;
+    height: 40px;
+    padding: 5px 0 0;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 99998;
+    background-color: transparent;
+}
+
+.mswOption::before {
+    transform: rotate(45deg);
+    transition: all .6s cubic-bezier(0.25, 0.1, 0.2, 1);
+    content: "";
+    background-color: #d6e2f5 !important;
+    position: absolute;
+    top: -150px;
+    right: auto;
+    left: -10px;
+    z-index: -1;
+    width: 0;
+    height: 300px;
+}
+
+.mswOption:hover::before {
+    transform: rotate(70deg);
+    width: 200px;
+}
+
+.mswOptionIcon {
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.mswOptionText {
+    font-family: Oracle Sans !important;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+#mswOptions.mswShowOption .mswOption {
+    opacity: 1 !important;
+}
+
+#mswFeebackContainer {
+    z-index: 99999;
+    border: 1px solid #cbcccd;
+    background-color: #fff !important;
+    color: #00395a !important;
+    border-radius: .75rem;
+    width: 300px;
+    min-height: 100px;
+    position: fixed;
+    right: 40px;
+    bottom: 75px;
+    font-family: Oracle Sans;
+    font-size: 16px;
+    padding: 0 10px 10px;
+    box-shadow: -1px -1px 20px -6px rgba(0, 0, 0, 0.71);
+}
+
+#mswCobrowseContainer {
+    z-index: 99999;
+    border: 1px solid #cbcccd;
+    background-color: #fff !important;
+    color: #00395a;
+    border-radius: .75rem;
+    width: 250px;
+    min-height: 100px;
+    position: fixed;
+    right: 40px;
+    bottom: 75px;
+    font-family: Oracle Sans;
+    font-size: 16px;
+    padding: 0 10px 10px;
+    box-shadow: -1px -1px 20px -6px rgba(0, 0, 0, 0.71);
+}
+
+.mswWindowContainer .windowTitle {
+    background-color: #1C487D;
+    color: #fff;
+    border-top-left-radius: .75rem;
+    border-top-right-radius: .75rem;
+    text-align: center;
+    margin: 0 -10px 10px -10px;
+    padding: 5px;
+}
+
+.mswWindowContainer .mswFeedbackTitle {
+    display: block;
+    font-size: 20px;
+    text-align: center;
+}
+
+.mswWindowContainer .mswFeedbackText {
+    display: block;
+    font-size: 18px;
+    width: 100%;
+    text-align: justify;
+}
+
+.mswWindowContainer .mswcobrowseTitle {
+    display: block;
+    font-size: 18px;
+    text-align: center;
+}
+
+.mswWindowContainer .mswcobrowseText {
+    display: block;
+    font-size: 20px;
+    width: 60%;
+    text-align: center;
+    border: 1px solid #a7a7a7 !important;
+    padding: 5px;
+    margin: 0 auto 20px auto;
+}
+
+.mswWindowContainer select {
+    display: block;
+    font-size: 16px;
+    margin: 15px auto;
+    padding: 10px 15px 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    width: unset !important;
+}
+
+.mswWindowContainer textarea {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    appearance: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    column-count: initial !important;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding: 2px;
+}
+
+.mswWindowContainer button {
+    display: block;
+    margin: 10px auto;
+    background-color: #1C487D !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-width: .1rem;
+    border-style: solid;
+    white-space: normal;
+    color: #fff !important;
+    padding: 10px 20px !important;
+    font-family: Lato, Arial;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.mswWindowContainer #mswFeedbackRef {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.mswHide {
+    display: none !important;
+}
+
+
+/* Hide Cobrowse */
+
+.oracle-cobrowse-widget-ui {
+    display: none;
+}
+
+
+/* Hide oda elements */
+
+.oda-chat-wrapper .oda-chat-button {
+    display: none !important;
+}
+
+.oda-chat-button-close {
+    display: none !important;
+}
+
+.oda-chat-logo {
+    display: none !important;
+}
+
+
+/* Modify Top Answers Inlay */
+
+.mswFixPosition {
+    right: 40px !important;
+    bottom: 75px !important;
+    border-radius: 10px;
+    box-shadow: -1px -1px 20px -6px rgba(0, 0, 0, 0.71);
+}
+
+.mswFixPositionODA {
+    right: 20px !important;
+    bottom: 30px !important;
+    border-radius: 10px;
+    box-shadow: -1px -1px 20px -6px rgba(0, 0, 0, 0.71);
+}
+
+#inlay-oracle-chat-embedded {
+    right: 55px !important;
+    bottom: 100px !important;
+}

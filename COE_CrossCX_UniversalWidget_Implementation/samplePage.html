@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample Page Mockup</title>
+    <meta charset="UTF-8">
+
+    <!-- Sample page style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        //Wait page to be ready
+        window.addEventListener('load', function() {
+            //Switch On/Off Button
+            document.getElementById('toggleUWButton').addEventListener('click', toggleUW);
+            //Launch Universal Widget when is on
+            if (localStorage.getItem('uwStatus') == 'on') {
+                document.getElementById('toggleUWButton').value = 'Disable Universal Widget';
+            }
+        });
+
+        if (localStorage.getItem('uwStatus') == 'on') {
+            launchUniversalWidget();
+        }
+
+        //Switch On/Off Universal widget
+        function toggleUW() {
+            if (localStorage.getItem('uwStatus') == 'on') {
+                localStorage.setItem('uwStatus', 'off');
+            } else {
+                localStorage.setItem('uwStatus', 'on');
+            }
+            location.reload();
+        }
+
+        //Add Universal Widget to the page, these tags add style and logic for an Universal Widget implementation
+        function launchUniversalWidget() {
+            //Add custom widget Style
+            var styleUW = document.createElement("link");
+            styleUW.rel = "stylesheet";
+            styleUW.href = "css/universalWidget.css";
+            document.head.appendChild(styleUW);
+
+            //Add custom widget JS
+            var script = document.createElement("script");
+            script.src = "js/universalWidget.js";
+            document.head.appendChild(script);
+        }
+    </script>
+
+
+
+    <!-- Common implementation of Oracle elements in customers websites -->
+    <!-- Oracle Icon Font -->
+    <link rel="stylesheet" href="https://static.oracle.com/cdn/fnd/gallery/2110.2.0/images/iconfont/ojuxIconFont.min.css" />
+    <!-- Oracle Font -->
+    <link rel="stylesheet" href="https://static.oracle.com/cdn/fnd/gallery/2001.0.0/OracleSans/OracleSans.min.css" />
+
+    <!-- Oracle ODA  Chatbot loader -->
+    <script>
+        var chatWidgetSettings = {
+            URI: "oda-0a5a2d5572934daa8f7479c25514c459-da2.data.digitalassistant.oci.oraclecloud.com",
+            channelId: "268f0c24-b936-4eac-ad93-e66532741ce0",
+        };
+        var initSdk = (name) => {
+            setTimeout(() => {
+                window[name] = new WebSDK(chatWidgetSettings);
+                window[name].connect();
+            });
+        };
+    </script>
+    <script src="https://rnowgse11624.rightnowdemo.com/euf/assets/oda-sdk/web-sdk.js" onload="initSdk('Bots')"></script>
+
+    <!-- Oracle Inlays loader (Top answers and Live Chat) -->
+    <script src="https://rnowgse11624.widget.rightnowdemo.com/s/oit/latest/common/v0/libs/oit/loader.js" id="oit-loader" async="" data-oit-theme="indigo" data-oit-inlays-loaded="true"></script>
+    <!-- Oracle Cobrowse -->
+    <script src="https://sc23301328llms1.cobrowse.oraclecloud.com/launcher.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class='main'>
+            <div class='logo'>
+                &lt; WebSite &gt;
+            </div>
+            <ul>
+                <li class='active'>
+                    <a href='#'>Home</a>
+                </li>
+                <li>
+                    <a href='#'>About</a>
+                </li>
+                <li>
+                    <a href='#'>Services</a>
+                </li>
+                <li>
+                    <a href='#'>Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class='title'>
+            <h1>Sample Site</h1>
+        </div>
+        <div class='button'>
+            <input type="button" id="toggleUWButton" class='btn' value="Enable Universal Widget"></input>
+        </div>
+
+        <!-- Tags for Oracle widgets -->
+        <!-- Top Answers -->
+        <inlay-oracle-knowledge-top-answers id="topAnswers" class="inlay" site-url="rnowgse11624.rightnowdemo.com" site-api="rnowgse11624.widget.rightnowdemo.com"></inlay-oracle-knowledge-top-answers>
+        <!-- ODA Chatbot -->
+        <div id="rn_chatBotInLay_40" class="rn_chatBotInLay"></div>
+        <!-- Live Chat -->
+        <inlay-oracle-chat-embedded id="chatInlay" class="inlay" site-url="rnowgse11624.widget.rightnowdemo.com"></inlay-oracle-chat-embedded>
+
+    </header>
+    <div class="footer">Center of Excelence - Cross CX Innovations - Made with ♥ by JAJ </div>
+    <!-- End of exmaple page -->
+
+
+    <!-- This is what you need to define to create Universal Widget HTML -->
+    <!-- Universal widget UIs custom implementation example -->
+    <div id="customImplementationExample" style="display: none;">
+
+        <!-- Univeral Widget Main UI example -->
+        <div id="mswContainer">
+            <div id="mswOptions" class="">
+                <div id="mswTopAnswers" class="mswOption"><span class="oj-ux-ico-input-search mswOptionIcon"></span> <span class="mswOptionText" style="margin-left: -5px;">Top Answers</span></div>
+                <div id="mswChatBot" class="mswOption"><span class="oj-ux-ico-robotics-adapter mswOptionIcon"></span><span class="mswOptionText">ChatBot</span></div>
+                <div id="mswLiveChat" class="mswOption"><span class="oj-ux-ico-oracle-chat-outline mswOptionIcon"></span><span class="mswOptionText">LiveChat</span></div>
+                <div id="mswCobrowse" class="mswOption"><span class="oj-ux-ico-action-alt mswOptionIcon"></span><span class="mswOptionText">Cobrowse</span></div>
+                <div id="mswFeedback" class="mswOption"><span class="oj-ux-ico-star-half mswOptionIcon"></span><span class="mswOptionText">	Feedback</span></div>
+            </div>
+            <div id="mswIconContainer" class="mswIconContainerInit">
+                <span id="mswMainIcon" class="oj-ux-ico-oracle-chat"></span>
+                <span id="mswIconText">Need Help?</span>
+            </div>
+        </div>
+
+        <!-- Feedback form example (Any other external funcionality managed by Universal Widget) -->
+        <div id="mswFeebackContainer" class="mswWindowContainer mswHide">
+            <div class="windowTitle">Feedback</div>
+            <div id="mswFeedbackForm"><span class="mswFeedbackTitle">We want to hear from you!</span>
+                <hr>
+                <span class="mswFeedbackText">How satisfied are you with your experience on our website?</span>
+                <select id="mswFeedbackRank"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select>
+                <span class="mswFeedbackText">Please share your feedback</span>
+                <textarea id="mswFeedbackComment" type="text" rows="3"></textarea>
+                <button id="mswFeedbackButton">Submit</button>
+            </div>
+            <div id="mswFeedbackConfirm" class="mswHide">
+                <span class="mswFeedbackTitle">Thanks for your feedback :)</span>
+                <span class="mswFeedbackText">Please share your feelings with us everytime you want to.</span>
+                <span id="mswFeedbackRef" class="mswFeedbackText"></span>
+            </div>
+        </div>
+
+        <!-- Alternative Cobrowse Interface example -->
+        <div id="mswCobrowseContainer" class="mswWindowContainer mswHide">
+            <div class="windowTitle">Cobrowse</div>
+            <div id="mswCobrowseForm"><span class="mswcobrowseTitle">Share your navigation</span>
+                <hr>
+                <button id="mswStartCobrowseButton">Start</button>
+                <div id="mswCobrowseActive" class="mswHide">
+                    <span id="mswCobrowseId" class="mswcobrowseText"></span>
+                    <button id="mswEndCobrowseButton">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- UIs #customImplementationExample -->
+</body>
+
+
+
+
+</html>

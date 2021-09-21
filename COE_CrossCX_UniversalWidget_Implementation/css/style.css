@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+}
+
+header {
+    background-image: url('https://developer.oracle.com/a/devo/images/cb50v3-option4.jpg');
+    height: 100vh;
+    background-repeat: repeat;
+    filter: opacity(80%);
+}
+
+.logo {
+    float: left;
+    margin: 20px;
+    font-size: 45px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+ul {
+    list-style-type: none;
+    float: right;
+    margin-top: 25px;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 2px solid transparent;
+    transition: 0.5s ease;
+}
+
+ul li a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+ul li.active a {
+    background-color: #fff;
+    color: #000;
+}
+
+.main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.title h1 {
+    color: #fff;
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.button {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.btn {
+    background-color: #567984;
+    border: 1px solid #fff;
+    padding: 10px 30px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.footer {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    display: inline-block;
+    width: 100vh;
+    height: 25px;
+    margin: 0 5px;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(78, 76, 76);
+    color: #567984;
+    transform-origin: 0 0;
+    transform: rotate(90deg);
+}
+
+
+/* Default position for Oracle widgets */
+
+.oda-chat-wrapper {
+    bottom: 45px !important;
+}
+
+#chatInlay {
+    right: 350px;
+}
+
+#topAnswers {
+    right: 200px;
+}
